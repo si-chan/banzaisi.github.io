@@ -6,6 +6,24 @@
 	
 	ext._getStatus = function() {
 		return {status: 2, msg: "Ready"};
+	};	
+	
+	ext.lightOn(args) {
+		$.ajax({
+			url: "http://localhost:14275/lighton/1/1",
+			complete: function() {
+				callback();
+			}
+		});
+	};
+	
+	ext.lightOff(args) {
+		$.ajax({
+			url: "http://localhost:14275/lightoff/1/1",
+			complete: function() {
+				callback();
+			}
+		});
 	};
 	
 	var descriptor = {
@@ -26,18 +44,8 @@
 
 		[" ", "Light ON", "lighton"],
 		[" ", "Light OFF", "lightoff"] 
-	}
-	
-	lightOn(args) {
-		http.open("GET", baseURL + "lighton/1/1";
-		http.send();
-	}
-	
-	lightOff(args) {
-		http.open("GET", baseURL + "lightoff/1/1";
-		http.send();
-	}
-	
+	};
+
 	ScratchExtensions.register("RobotArm", descriptor, ext);
 	
 })({});

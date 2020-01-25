@@ -1,30 +1,37 @@
-(function(ext)  {
-	const baseURL = "http://localhost:14275/";
-	const http = new XMLHttpRequest();
+(function(ext) {
+    // Cleanup function when the extension is unloaded
+    ext._shutdown = function() {};
 
-	ext._shutdown = function() {};
-	
+    // Status reporting code
+    // Use this to report missing hardware, plugin or unsupported browser
 	ext._getStatus = function() {
 		return {status: 2, msg: "Ready"};
 	};	
 	
-	ext.lightOn(args) {
+	// Turn the robot arm light on
+	ext.lightOn() = function() {
 		$.ajax({
 			url: "http://localhost:14275/lighton/1/1"
 		});
 	};
 	
-	ext.lightOff(args) {
+	// Turn the robot arm light off
+	ext.lightOff() = function() {
 		$.ajax({
 			url: "http://localhost:14275/lightoff/1/1"
 		});
 	};
-	
+
+	// Block and block menu description
 	var descriptor = {
-		[" ", "Light ON", "lighton"],
-		[" ", "Light OFF", "lightoff"] 
+		blocks: [
+			// Block type, block name, function name
+			[" ", "Light ON", "lighton"],
+			[" ", "Light OFF", "lightoff"],
+		]
 	};
 
+	// Register the extension
 	ScratchExtensions.register("RobotArm", descriptor, ext);
 	
 })({});

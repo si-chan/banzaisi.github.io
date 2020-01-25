@@ -11,6 +11,7 @@
 	// Turn the robot arm light on
 	ext.lightOn = function() {
 		$.ajax({
+			type: 'GET',
 			url: 'http://localhost:14275/lighton/1/1',
 			dataType: 'html',
 			success: function(data) {}
@@ -20,6 +21,7 @@
 	// Turn the robot arm light off
 	ext.lightOff = function() {
 		$.ajax({
+			type: 'GET',
 			url: 'http://localhost:14275/lightoff/1/1',
 			dataType: 'html',
 			success: function(data) {}

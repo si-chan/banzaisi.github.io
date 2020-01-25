@@ -1,24 +1,31 @@
-class ScratchRobotArm {
+(function(ext)  {
 	const baseURL = "http://localhost:14275/";
 	const http = new XMLHttpRequest();
+
+	ext._shutdown = function() {};
 	
-	getInfo() {
-		return {
-			"id": "ScratchRobotArm",
-			"name": "ScratchRobotArm",
-			"blocks": [
-				{
-					"opcode": "lightOn",
-					"blockType": "command",
-					"text": "Light On",
-				},
-				{
-					"opcode": "lightOff",
-					"blockType": "command",
-					"text": "Light Off",					
-				}
-			]
-		}
+	ext._getStatus = function() {
+		return {status: 2, msg: "Ready"};
+	};
+	
+	var descriptor = {
+		["w", "Rotate clock-wise for %n second(s)", "rotatecw", 1],
+		["w", "Rotate anti clock-wise for %n second(s)", "rotateccw", 1],
+
+		["w", "Shoulder up for %n second(s)", "shoulderup", 1],
+		["w", "Shoulder down for %n second(s)", "shoulderdown", 1],
+
+		["w", "Elbow up for %n second(s)", "elbowup", 1],
+		["w", "Elbow down for %n second(s)", "elbowdown", 1],
+
+		["w", "Wrist up for %n second(s)", "wristup", 1],
+		["w", "Wrist down for %n second(s)", "wristdown", 1],
+
+		["w", "Grip close for %n second(s)", "gripopen", 1],
+		["w", "Grip open for %n second(s)", "gripclose", 1],
+
+		[" ", "Light ON", "lighton"],
+		[" ", "Light OFF", "lightoff"] 
 	}
 	
 	lightOn(args) {
@@ -31,4 +38,6 @@ class ScratchRobotArm {
 		http.send();
 	}
 	
-}
+	ScratchExtensions.register("RobotArm", descriptor, ext);
+	
+})({});

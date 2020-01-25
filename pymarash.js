@@ -13,7 +13,7 @@
 	
 	// HTTP client function
 	function sendMessage(command, data) {
-		uri = 'http://localhost:14275/'+command+'/1/'+data.toString();
+		uri = pymarashserver + command + '/1/' + data.toString();
 		$.ajax({
 			type: 'GET',
 			url: uri,

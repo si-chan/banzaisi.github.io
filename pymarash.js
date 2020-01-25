@@ -1,6 +1,6 @@
 (function(ext) {
 	// URL for the server
-	const pymarashserver = 'http://localhost:14275/'
+	const pymarashserver = 'http://localhost:14275/';
 	
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
@@ -9,7 +9,7 @@
     // Use this to report missing hardware, plugin or unsupported browser
 	ext._getStatus = function() {
 		return {status: 2, msg: 'Ready'};
-	};	
+	};
 	
 	// HTTP client function
 	function sendMessage(command, data) {
@@ -80,7 +80,6 @@
 		sendMessage('gripclose', duration);
 		callback();
 	};
-
 
 	// Block and block menu description
 	var descriptor = {

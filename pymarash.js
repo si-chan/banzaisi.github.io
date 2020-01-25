@@ -31,8 +31,56 @@
 		sendMessage('lightoff', 0);
 	};
 	
-	ext.rotatecw = function() {
-		
+	ext.rotatecw = function(duration, callback) {
+		sendMessage('rotatecw', duration);
+		callback();
+	};
+
+	ext.rotateccw = function(duration, callback) {
+		sendMessage('rotateccw', duration);
+		callback();
+	};
+
+	ext.shoulderup = function(duration, callback) {
+		sendMessage('shoulderup', duration);
+		callback();
+	};
+
+	ext.shoulderdown = function(duration, callback) {
+		sendMessage('shoulderdown', duration);
+		callback();
+	};
+
+	ext.elbowup = function(duration, callback) {
+		sendMessage('elbowup', duration);
+		callback();
+	};
+
+	ext.elbowdown = function(duration, callback) {
+		sendMessage('elbowdown', duration);
+		callback();
+	};
+
+	ext.wristup = function(duration, callback) {
+		sendMessage('wristup', duration);
+		callback();
+	};
+
+	ext.wristdown = function(duration, callback) {
+		sendMessage('wristdown', duration);
+		callback();
+	};
+
+	ext.gripopen = function(duration, callback) {
+		sendMessage('gripopen', duration);
+		callback();
+	};
+
+	ext.gripclose = function(duration, callback) {
+		sendMessage('gripclose', duration);
+		callback();
+	};
+
 
 	// Block and block menu description
 	var descriptor = {

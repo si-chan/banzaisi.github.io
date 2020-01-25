@@ -1,6 +1,6 @@
 (function(ext) {
 	// URL for the server
-	const pymarashserver = 'http://localhost:14275/';
+	var pymarashserver = 'http://localhost:14275/';
 	
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
@@ -13,11 +13,12 @@
 	
 	// HTTP client function
 	function sendMessage(command, data) {
+		uri = 'http://localhost:14275/'+command+'/1/'+data.toString();
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:14275/'+command+'/1/'+data,
+			url: uri,
 			dataType: 'html',
-			success: function(data) {}
+			success: function(output) {}
 		});
 	};
 	

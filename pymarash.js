@@ -101,7 +101,7 @@
 			["w", "Wrist down for %n second(s)", "wristdown", 1],
 
 			["w", "Grip close for %n second(s)", "gripopen", 1],
-			["w", "Grip open for %n second(s)", "gripclose", 1],
+			["w", "Grip open for %n second(s)", "gripclose", 1]
 		]	
 	};
 
